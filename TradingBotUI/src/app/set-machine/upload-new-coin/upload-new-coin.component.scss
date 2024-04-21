@@ -4,4 +4,20 @@
     width: 100%;
     border: 10px dashed gray;
     border-radius: 10px;
+
+    .upload-button {
+        width: 100%; 
+        height: 100%; 
+        background-color: inherit;
+        top: 0; 
+        left: 0; 
+        cursor: pointer;
+
+        .upload-icon {
+            color: yellow;
+            height: 70px;
+            width: 70px;
+            font-size: 70px;
+        }
+    }
 }
