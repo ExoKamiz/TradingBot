@@ -1,4 +1,14 @@
 <div class="container">
-    <app-upload-new-coin class="upload"></app-upload-new-coin>
-    <app-settings class="set"></app-settings>
+    <div class="upload-help">
+        <p class="text-animation">Upload your file here...</p>
+        <button mat-button class="clear-button" (click)="clearChart()">Clear</button>
+    </div>
+    <div class="set-and-upload">
+        <app-upload-new-coin class="upload"></app-upload-new-coin>
+        <app-settings class="set"></app-settings>
+    </div>
+    <div class="settings-help">
+        <button mat-button class="clear-button">Clear</button>
+        <p class="text-animation">Set your chart here...</p>
+    </div>
 </div>

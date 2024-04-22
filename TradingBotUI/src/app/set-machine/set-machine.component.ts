@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { UploadNewCoinComponent } from "./upload-new-coin/upload-new-coin.component";
 import { SettingsComponent } from "./settings/settings.component";
+import { SetMachineService } from './set-machine.service';
 
 @Component({
     selector: 'app-set-machine',
@@ -9,6 +10,20 @@ import { SettingsComponent } from "./settings/settings.component";
     styleUrl: './set-machine.component.scss',
     imports: [UploadNewCoinComponent, SettingsComponent]
 })
-export class SetMachineComponent {
+export class SetMachineComponent implements OnInit, OnDestroy {
+    constructor(
+        private setMachineService: SetMachineService,
+    ) {}
 
+    ngOnInit(): void {
+    
+    }
+  
+    ngOnDestroy(): void {
+  
+    }
+
+    clearChart(): void {
+        this.setMachineService.onClearChart();
+    }
 }

@@ -1,6 +1,20 @@
-<div class="container">
+<div class="upload-container" *ngIf="!isFileSelected; else selectedChart">
     <input type="file" #fileInput style="display: none" (change)="onFileSelected($event)">
     <button class="upload-button" (click)="fileInput.click()">
         <mat-icon class="upload-icon">file_upload</mat-icon>
     </button>
 </div>
+<ng-template #selectedChart>
+    <div class="selected-chart">
+        <p>SSSSS</p>
+        <div class="chart">
+            <ngx-charts-line-chart *ngIf="chartData.length > 0"
+                [results]="chartData"
+                [xAxis]="true"
+                [yAxis]="true"
+                [showXAxisLabel]="false"
+                [showYAxisLabel]="false">
+            </ngx-charts-line-chart>
+        </div>
+    </div>
+</ng-template>

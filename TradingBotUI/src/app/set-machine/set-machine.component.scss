@@ -1,24 +1,115 @@
 .container {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    height: 60vh;
-    width: 50vw;
-    //background-color: #808080;
 
-    .upload {
+    .set-and-upload {
         display: flex;
-        height: 100%;
-        width: 50%;
-        float: left;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        height: 60vh;
+        width: 55vw;
+    
+        .upload {
+            display: flex;
+            height: 100%;
+            width: 50%;
+            float: left;
+            flex-direction: row;
+        }
+    
+        .set {
+            display: flex;
+            height: 100%;
+            width: 50%;
+            float: right;
+            background-color: red;
+        }
+    }
+    
+    .upload-help {
+        display: flex;
+        width: 170px;
+        height: 60vh; 
+        flex-direction: column;
+        padding-top: 100px;
+
+        button {
+            margin-left: auto;
+            margin-right: 20px;
+        }
+    }
+    
+    .settings-help {
+        display: flex;
+        width: 170px;
+        height: 60vh; 
+        flex-direction: column;
+        padding-top: 300px;
+        padding-left: 20px;
+        
+        button {
+            margin-bottom: 10px;
+        }
+    }
+}
+
+
+.clear-button {
+    width: 70px;
+    height: 30px;
+    background-color: lime;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 0px 0px 5px lime;
+    box-shadow: 0px 0px 10px lime;
+    transition: background-color 0.3s, text-shadow 0.3s, box-shadow 0.3s;
+
+    &:hover {
+        background-color: darkgreen;
+        text-shadow: 0px 0px 10px darkgreen;
+        box-shadow: 0px 0px 20px darkgreen;
+    }
+}
+
+.text-animation {
+    color: lime;
+    text-shadow: 0px 0px 10px lime;
+    border-right: .15em solid lime;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    animation: typing 4s steps(40, end), neon 1s ease-in-out infinite alternate, cursor 4s forwards;
+    animation-fill-mode: forwards;
+
+    @keyframes typing {
+        0% {
+            width: 0;
+        }
+        100% {
+            width: 100%;
+        }
     }
 
-    .set {
-        display: flex;
-        height: 100%;
-        width: 50%;
-        float: right;
-        background-color: red;
+    @keyframes neon {
+        0% {
+            text-shadow: 0px 0px 10px lime;
+        }
+        100% {
+            text-shadow: 0px 0px 20px lime;
+        }
+    }
+
+    @keyframes cursor {
+        0% {
+            border-right: .15em solid lime;
+        }
+        100% {
+            border-right: .15em solid transparent; // делает курсор прозрачным после окончания анимации
+        }
     }
 }

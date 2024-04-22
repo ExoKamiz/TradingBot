@@ -1,4 +1,4 @@
-.container {
+.upload-container {
     display: flex;
     max-height: 100%;
     width: 100%;
@@ -19,5 +19,33 @@
             width: 70px;
             font-size: 70px;
         }
+    }
+}
+
+
+.selected-chart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%; 
+    height: 100%; 
+    padding: 15px 15px;
+
+    p {
+        font-size: 20px;
+        font-weight: bold;
+        color: aqua;
+    }
+
+    .chart {
+        display: flex;
+        height: calc(100% - 50px);
+        width: calc(100% - 30px);
+        background-color: azure;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        flex-direction: column;
+        padding-bottom: 10px;
     }
 }
