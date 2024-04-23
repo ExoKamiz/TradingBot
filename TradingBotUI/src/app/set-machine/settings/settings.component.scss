@@ -1,5 +1,57 @@
 .container {
-    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-height: 100%;
     width: 100%;
-    background-color: red;
+    background-color: #222; 
+    border-radius: 10px;
+    box-shadow: 0 0 7px rgba(233, 229, 11, 0.87);
+    padding: 20px 20px;
+
+    .section {
+        display: flex;
+        height: fit-content;
+        justify-content: center;
+        align-items: center;
+        width: calc(100% - 40px);
+        //border-bottom: 1px solid rgb(182, 181, 181);
+        margin: 10px 0;
+
+        .setting-title {
+            //text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+            color: #ccc;
+        }
+    }
+}
+
+.days-number {
+    display: flex;
+    flex-direction: column;
+    
+    .counter {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      
+        button {
+          font-size: 20px;
+          padding: 10px;
+          margin: 5px;
+          background-color: #0ff;
+          border: none;
+          color: #222;
+          cursor: pointer;
+      
+          &:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+          }
+        }
+      
+        input {
+          width: 50px;
+          text-align: center;
+        }
+    }
 }

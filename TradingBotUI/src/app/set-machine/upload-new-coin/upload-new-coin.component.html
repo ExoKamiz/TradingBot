@@ -6,14 +6,15 @@
 </div>
 <ng-template #selectedChart>
     <div class="selected-chart">
-        <p>SSSSS</p>
+        <p>{{ getFileTitle() }}</p>
         <div class="chart">
             <ngx-charts-line-chart *ngIf="chartData.length > 0"
                 [results]="chartData"
                 [xAxis]="true"
                 [yAxis]="true"
                 [showXAxisLabel]="false"
-                [showYAxisLabel]="false">
+                [showYAxisLabel]="false"
+                style="fill: #f3f3f3;">
             </ngx-charts-line-chart>
         </div>
     </div>

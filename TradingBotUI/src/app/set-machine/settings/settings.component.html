@@ -1,3 +1,18 @@
 <div class="container">
-
+    <div class="days-number section">
+        <p class="setting-title">Select the number of forecast days</p>
+        <div class="counter setting">
+            <button [disabled]="forecastDays === 0" (click)="decrement()">-</button>
+            <input type="number" [(ngModel)]="forecastDays" (input)="manualInput($event)" min="0">
+            <button (click)="increment()">+</button>
+        </div>
+    </div>
+    <div class="time-period section">
+        <p class="setting-title">For which periods to show charts (with forecasting)</p>
+        <div class="setting"></div>
+    </div>
+    <div class="methods section">
+        <p class="setting-title">Choose your forecasting methods</p>
+        <div class="setting"></div>
+    </div>
 </div>

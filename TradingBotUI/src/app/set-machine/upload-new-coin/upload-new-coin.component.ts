@@ -1,12 +1,14 @@
 import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
-import { MatIconModule } from '@angular/material/icon';
+import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { SetMachineService } from '../set-machine.service';
+import { BrowserModule, DomSanitizer } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-upload-new-coin',
   standalone: true,
-  imports: [MatIconModule, NgxChartsModule],
+  imports: [MatIconModule, NgxChartsModule, HttpClientModule],
   templateUrl: './upload-new-coin.component.html',
   styleUrl: './upload-new-coin.component.scss'
 })
@@ -14,7 +16,7 @@ export class UploadNewCoinComponent implements OnInit, OnDestroy {
   selectedFile: File | null = null;
   isFileSelected: boolean = false;
   chartData: { name: string, series: { name: string, value: number }[] }[] = [];
-  
+
   constructor(
     private cdr: ChangeDetectorRef,
     private setMachineService: SetMachineService,
@@ -44,6 +46,16 @@ export class UploadNewCoinComponent implements OnInit, OnDestroy {
     reader.readAsText(this.selectedFile as Blob);
   }
 
+  public getFileTitle(): string {
+    if (this.selectedFile) {
+      const fileName = this.selectedFile.name;
+      const fileTitle = fileName.substring(0, fileName.lastIndexOf('.csv'));
+      return fileTitle;
+    } else {
+      return 'No file selected';
+    }
+  }
+
   private processData(text: string): void {
     const lines = text.split('\n');
     const series = lines.slice(1).filter(line => {
@@ -63,7 +75,7 @@ export class UploadNewCoinComponent implements OnInit, OnDestroy {
     
     this.chartData = [
       {
-        name: 'Series 1',
+        name: this.getFileTitle(),
         series: series
       }
     ];
