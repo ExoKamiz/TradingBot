@@ -1,18 +1,35 @@
 <div class="container">
-    <div class="days-number section">
-        <p class="setting-title">Select the number of forecast days</p>
+    <div class="days-number setter">
+        <p class="setting-title">Select the number of forecast days (max {{maxDaysAmount}} days)</p>
         <div class="counter setting">
-            <button [disabled]="forecastDays === 0" (click)="decrement()">-</button>
-            <input type="number" [(ngModel)]="forecastDays" (input)="manualInput($event)" min="0">
-            <button (click)="increment()">+</button>
+            <button class="change-count" [disabled]="forecastDays <= 1" (click)="decrement()">
+                <mat-icon>arrow_downward</mat-icon>
+            </button>
+            <input class="number-input" type="text" [(ngModel)]="forecastDays" (blur)="focusOut()" (input)="manualInput($event)">
+            <button class="change-count" [disabled]="forecastDays >= maxDaysAmount" (click)="increment()">
+                <mat-icon>arrow_upward</mat-icon>
+            </button>
         </div>
     </div>
-    <div class="time-period section">
+    <div class="time-period setter">
         <p class="setting-title">For which periods to show charts (with forecasting)</p>
-        <div class="setting"></div>
+        <div class="setting">
+            <mat-button-toggle-group [(value)]="selectedPeriods" multiple>
+                <mat-button-toggle value="flour">14D</mat-button-toggle>
+                <mat-button-toggle value="eggs">3M</mat-button-toggle>
+                <mat-button-toggle value="sugar">1Y</mat-button-toggle>
+                <mat-button-toggle value="all">All</mat-button-toggle>
+            </mat-button-toggle-group>
+        </div>
     </div>
-    <div class="methods section">
+    <div class="methods setter">
         <p class="setting-title">Choose your forecasting methods</p>
-        <div class="setting"></div>
+        <div class="setting">
+            <!-- <section [formGroup]="analyzingMethods">
+                <p><mat-checkbox formControlName="sarimax">SARIMAX</mat-checkbox></p>
+                <p><mat-checkbox formControlName="ets">ETS</mat-checkbox></p>
+                <p><mat-checkbox formControlName="average">Average</mat-checkbox></p>
+            </section> -->
+        </div>
     </div>
 </div>

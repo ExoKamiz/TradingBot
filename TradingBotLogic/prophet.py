@@ -8,7 +8,7 @@ from sklearn.model_selection import TimeSeriesSplit
 from sklearn.ensemble import VotingRegressor
 
 # Load data
-data = pd.read_csv('SOL-USD.csv', parse_dates=True, index_col='Date')
+data = pd.read_csv('TradingBotLogic\SOL-USD.csv', parse_dates=True, index_col='Date')
 ts = data['Close']
 
 # Interpolate missing values

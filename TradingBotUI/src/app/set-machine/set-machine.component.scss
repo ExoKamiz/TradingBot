@@ -15,6 +15,7 @@
             display: flex;
             height: 100%;
             width: 50%;
+            max-width: 50%;
             float: left;
             flex-direction: row;
         }
@@ -23,6 +24,7 @@
             display: flex;
             height: 100%;
             width: 50%;
+            max-width: 50%;
             float: right;
         }
     }

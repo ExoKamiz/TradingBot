@@ -9,17 +9,16 @@
     box-shadow: 0 0 7px rgba(233, 229, 11, 0.87);
     padding: 20px 20px;
 
-    .section {
+    .setter {
         display: flex;
+        flex-direction: column;
         height: fit-content;
         justify-content: center;
         align-items: center;
         width: calc(100% - 40px);
-        //border-bottom: 1px solid rgb(182, 181, 181);
-        margin: 10px 0;
+        margin: 20px 0;
 
         .setting-title {
-            //text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
             color: #ccc;
         }
     }
@@ -34,24 +33,47 @@
         justify-content: center;
         align-items: center;
       
-        button {
-          font-size: 20px;
-          padding: 10px;
-          margin: 5px;
-          background-color: #0ff;
-          border: none;
+        .change-count {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 0 20px;
+          width: 35px;
+          height: 35px;
+          border: 2px solid transparent;
+          background-color: #222;
+          border-radius: 50%;
           color: #222;
           cursor: pointer;
-      
+
+          mat-icon {
+            color: yellow;
+            overflow: visible;
+          }
+
+          &:hover {
+            border-color: #f75ff7;
+          }
+        
           &:disabled {
-            background-color: #ccc;
-            cursor: not-allowed;
+            cursor: default;
+            mat-icon {
+              color: red;
+            }
+
+            &:hover {
+              border-color: transparent;
+            }
           }
         }
-      
-        input {
-          width: 50px;
+
+        .number-input {
+          width: 70px;
           text-align: center;
+          color: #ccc;
+          background-color: #222;
+          border-bottom: 1px solid #ccc;
+          border-right: none;
         }
     }
 }
