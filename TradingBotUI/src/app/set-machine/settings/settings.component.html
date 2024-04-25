@@ -22,14 +22,12 @@
             </mat-button-toggle-group>
         </div>
     </div>
-    <div class="methods setter">
+    <div class="methods setter" [formGroup]="analyzingMethods">
         <p class="setting-title">Choose your forecasting methods</p>
         <div class="setting">
-            <!-- <section [formGroup]="analyzingMethods">
-                <p><mat-checkbox formControlName="sarimax">SARIMAX</mat-checkbox></p>
-                <p><mat-checkbox formControlName="ets">ETS</mat-checkbox></p>
-                <p><mat-checkbox formControlName="average">Average</mat-checkbox></p>
-            </section> -->
+            <mat-checkbox formControlName="sarimax" class="custom-checkbox">SARIMAX</mat-checkbox>
+            <mat-checkbox formControlName="ets" class="custom-checkbox">ETS</mat-checkbox>
+            <mat-checkbox formControlName="average" class="custom-checkbox">Average</mat-checkbox>
         </div>
     </div>
 </div>

@@ -21,6 +21,14 @@
         .setting-title {
             color: #ccc;
         }
+
+        .setting {
+          display: flex;
+          height: 100%;
+          max-width: 100%;
+          justify-content: center;
+          align-items: center;
+        }
     }
 }
 
@@ -76,4 +84,22 @@
           border-right: none;
         }
     }
+}
+
+mat-button-toggle-group {
+  overflow-x: auto;
+
+  .mat-pseudo-checkbox {
+    background-color: #f75ff7;
+  }
+}
+
+.setting .custom-checkbox {
+  flex: 1;
+  border-right: 1px solid white;
+  padding: 0 10px;
+}
+
+.setting .custom-checkbox:last-child {
+  border-right: none;
 }

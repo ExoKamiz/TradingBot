@@ -26,4 +26,8 @@ export class SetMachineComponent implements OnInit, OnDestroy {
     clearChart(): void {
         this.setMachineService.onClearChart();
     }
+
+    clearSettings(): void {
+        this.setMachineService.onClearSettings();
+    }
 }

@@ -3,6 +3,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { SetMachineService } from '../set-machine.service';
 import { HttpClientModule } from '@angular/common/http';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-upload-new-coin',
@@ -15,6 +16,7 @@ export class UploadNewCoinComponent implements OnInit, OnDestroy {
   selectedFile: File | null = null;
   isFileSelected: boolean = false;
   chartData: { name: string, series: { name: string, value: number }[] }[] = [];
+  private subscription = new Subscription();
 
   constructor(
     private cdr: ChangeDetectorRef,
@@ -26,7 +28,7 @@ export class UploadNewCoinComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-
+    this.subscription.unsubscribe();
   }
 
   public onFileSelected(event: any): void {
@@ -82,11 +84,13 @@ export class UploadNewCoinComponent implements OnInit, OnDestroy {
   }
 
   clearChartData(): void {
-    this.setMachineService.clearChart$.subscribe(() => {
-      this.chartData = [];
-      this.isFileSelected = false;
-      this.selectedFile = null;
-      this.cdr.detectChanges();
-    });
+    this.subscription.add(
+      this.setMachineService.clearChart$.subscribe(() => {
+        this.chartData = [];
+        this.isFileSelected = false;
+        this.selectedFile = null;
+        this.cdr.detectChanges();
+      })
+    );
   }
 }
